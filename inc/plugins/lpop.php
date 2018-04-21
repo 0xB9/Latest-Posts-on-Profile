@@ -233,6 +233,7 @@ function lpop_display()
 	$data = fetch_post_data($uid);
 	foreach($data as $d)
 	{
+        $d['tsubject'] = htmlspecialchars_uni($d['tsubject']);
 		$thread = '<a href="'.$mybb->settings['bburl'].'/'.get_thread_link($d['tid']).'#pid'.$d['pid'].'">'.$d['tsubject'].'</a>';
 		$forum = '<a href="'.$mybb->settings['bburl'].'/'.get_forum_link($d['fid']).'">'.$d['fname'].'</a>';
 		$postdate = date($dateformat, $d['dateline']);
